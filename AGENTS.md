@@ -1,7 +1,7 @@
 # TKD Register — Memoria del Proyecto (AGENTS.md)
 
 ## 1. Propósito del Proyecto y Modelo de Negocio
-**TKD Register** (`https://tkdregister.com/` / hosting en Firebase `https://tkd-register-premium.web.app`) es la página informativa y comercial oficial de un ecosistema digital especializado en **artes marciales y Taekwondo**, creado como un producto de **Interpres Digital** (`https://interpresdigital.com/`).
+**TKD Register** (`https://tkdregister.com/` / hosting en Firebase `https://tkdregister.web.app`) es la página informativa y comercial oficial de un ecosistema digital especializado en **artes marciales y Taekwondo**, creado como un producto de **Interpres Digital** (`https://interpresdigital.com/`).
 
 El ecosistema cubre **dos líneas principales de solución**:
 1. **Plataformas para Torneos de Taekwondo (Esquema de Renta Personalizada por Evento)**:
@@ -30,7 +30,7 @@ El ecosistema cubre **dos líneas principales de solución**:
 - **SEO Técnico e Indexación Híbrida**:
   - `index.html` incorpora metadatos completos (`lang="es-MX"`, canonical `https://tkdregister.com/`, Open Graph, Twitter Cards), datos estructurados **Schema.org JSON-LD** (`@graph` con `Organization`, `WebSite`, `SoftwareApplication`, `Service` y `FAQPage`) y un bloque semántico completo dentro de `<noscript>` para crawlers e IA sin provocar parpadeo visual (**FOUC**) al cargar React.
   - Estilo crítico inline en `<head>` (`background-color: #070B14; color: #FFFFFF;`) para evitar destellos blancos antes de hidratar la SPA.
-- **Hospedaje**: Firebase Hosting configurado en el proyecto `tkd-register`, sitio específico `tkd-register-premium`.
+- **Hospedaje**: Firebase Hosting configurado en el proyecto `interpres-digital` (Número de proyecto: `245157317579`), sitio específico `tkdregister` (`https://tkdregister.web.app`).
 
 ---
 
@@ -55,8 +55,8 @@ El ecosistema cubre **dos líneas principales de solución**:
 │   │   └── Card.tsx            # Componente base de tarjeta
 │   └── lib/
 │       └── utils.ts            # Helper cn() (clsx + tailwind-merge)
-├── firebase.json               # Configuración de Firebase Hosting (site: tkd-register-premium, public: dist, SPA rewrite)
-├── .firebaserc                 # Proyecto por defecto: tkd-register
+├── firebase.json               # Configuración de Firebase Hosting (site: tkdregister, public: dist, SPA rewrite)
+├── .firebaserc                 # Proyecto por defecto: interpres-digital (245157317579)
 ├── vite.config.ts              # Configuración de Vite, Tailwind v4 y alias @/
 ├── tsconfig.json               # Configuración TypeScript
 └── package.json                # Scripts y dependencias
@@ -81,9 +81,11 @@ El ecosistema cubre **dos líneas principales de solución**:
   ```bash
   npm run build
   ```
-- **Desplegar en Firebase Hosting**:
+- **Desplegar en Firebase Hosting** (proyecto `interpres-digital`, sitio `tkdregister`):
   ```bash
-  firebase deploy --only hosting:tkd-register-premium
+  firebase deploy --only hosting:tkdregister
+  # o compilando y desplegando en un solo paso:
+  npm run deploy
   ```
 
 ---

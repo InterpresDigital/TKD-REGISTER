@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "site": "tkd-register-premium",
+    "site": "tkdregister",
     "public": "dist",
     "ignore": [
       "firebase.json",
