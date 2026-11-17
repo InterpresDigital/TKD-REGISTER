@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-brand-blue: #141E33;
+  --color-brand-blue-deep: #0B111F;
+  --color-brand-blue-accent: #1D4ED8;
+  --color-brand-blue-cyan: #38BDF8;
+  
+  --color-brand-green: #28AF90;
+  --color-brand-green-light: #34D399;
+  --color-brand-green-bright: #10B981;
+  
+  --color-bg-base: #06090F;
+  --color-bg-surface: #0A0F1A;
+  --color-bg-panel: #0F172A;
+  --color-bg-card: #131E35;
+  --color-bg-card-hover: #182644;
+  
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #94A3B8;
+  --color-text-muted: #64748B;
+
+  --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-bg-base);
+    color: var(--color-text-primary);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+}
+
+@layer utilities {
+  /* High-End Glassmorphism & Metallic Bevel Cards */
+  .premium-card {
+    background: linear-gradient(145deg, rgba(19, 30, 53, 0.85) 0%, rgba(10, 16, 28, 0.95) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 
+      inset 0 1px 1px 0 rgba(255, 255, 255, 0.2),
+      inset 0 -1px 1px 0 rgba(0, 0, 0, 0.8),
+      0 12px 35px -8px rgba(0, 0, 0, 0.85);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .premium-card-glow {
+    background: linear-gradient(145deg, rgba(20, 36, 60, 0.9) 0%, rgba(10, 18, 32, 0.98) 100%);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(40, 175, 144, 0.45);
+    box-shadow: 
+      inset 0 1px 2px 0 rgba(40, 175, 144, 0.4),
+      inset 0 -1px 1px 0 rgba(0, 0, 0, 0.8),
+      0 0 30px -5px rgba(40, 175, 144, 0.25),
+      0 16px 40px -10px rgba(0, 0, 0, 0.9);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .premium-card-glow::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(52, 211, 153, 0.8), transparent);
+  }
+
+  .premium-border-gradient {
+    position: relative;
+    border: 1px solid transparent;
+    background: linear-gradient(#0D1527, #0D1527) padding-box,
+                linear-gradient(135deg, rgba(40, 175, 144, 0.6) 0%, rgba(255, 255, 255, 0.15) 50%, rgba(37, 99, 235, 0.5) 100%) border-box;
+  }
+
+  /* Shimmer / Light Beam Effect */
+  .light-beam {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .light-beam::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 30%;
+    height: 200%;
+    background: linear-gradient(
+      to right,
+      transparent,
+      rgba(255, 255, 255, 0.15),
+      rgba(40, 175, 144, 0.25),
+      rgba(255, 255, 255, 0.15),
+      transparent
+    );
+    transform: rotate(30deg);
+    transition: 0.8s;
+    animation: beam 7s infinite ease-in-out;
+    pointer-events: none;
+  }
+
+  @keyframes beam {
+    0% { left: -60%; }
+    25% { left: 160%; }
+    100% { left: 160%; }
+  }
+
+  /* Grid Background Overlay */
+  .mesh-grid {
+    background-image: 
+      radial-gradient(circle at 50% 0%, rgba(40, 175, 144, 0.12) 0%, transparent 65%),
+      linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 100% 100%, 48px 48px, 48px 48px;
+  }
+}

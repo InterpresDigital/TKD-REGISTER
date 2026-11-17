@@ -1,0 +1,27 @@
+# Dependencias
+node_modules/
+functions/node_modules/
+
+# Compilados regenerables automáticamente con npm run build (NO ignorar public/)
+dist/
+build/
+coverage/
+
+# Cachés y logs de Firebase / npm
+.firebase/
+firebase-debug*.log
+*.log
+
+# Secretos, variables de entorno y credenciales
+.env
+.env.*
+!.env.example
+*service-account*.json
+*adminsdk*.json
+*.pem
+*.key
+
+# Archivos temporales del sistema operativo y editores
+.DS_Store
+Thumbs.db
+~$*
