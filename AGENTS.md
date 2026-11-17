@@ -81,12 +81,13 @@ El ecosistema cubre **dos líneas principales de solución**:
   ```bash
   npm run build
   ```
-- **Desplegar en Firebase Hosting** (proyecto `interpres-digital`, sitio `tkdregister`):
-  ```bash
-  firebase deploy --only hosting:tkdregister
-  # o compilando y desplegando en un solo paso:
-  npm run deploy
-  ```
+- **Despliegue a Producción (Controlado vía GitHub Actions)**:
+  - **Regla Estricta**: NUNCA ejecutar `firebase deploy` en la terminal remota ni solicitar tokens manuales.
+  - El despliegue a Firebase Hosting vive exclusivamente en `.github/workflows/deploy.yml` y solo se activa cuando se actualiza la rama `produccion` o vía `workflow_dispatch`.
+  - Cuando el usuario indique en el chat *"Despliega a producción"*, el agente ejecuta:
+    ```bash
+    git checkout produccion && git merge main --ff-only && git push origin produccion && git checkout main
+    ```
 
 ---
 
